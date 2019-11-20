@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Card } from 'react-bootstrap';
 import * as mom from 'moment';
-import { DATE_FORMAT, JPG, MEDIUM } from './Consts';
+import { DATE_FORMAT, JPG, MEDIUM, BOOK_URL, GET_ALL_URL, BASE_URL } from './Consts';
 
 export default class Browse extends React.Component {
 
@@ -14,7 +14,7 @@ export default class Browse extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:9000/books/getAll')
+        axios.get(`${BASE_URL}${BOOK_URL}${GET_ALL_URL}`)
             .then(res => {
                 console.log(res);
                 this.setState({ books: res.data });
